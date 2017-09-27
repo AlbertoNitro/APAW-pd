@@ -1,25 +1,25 @@
 package es.upm.miw.doo.exception;
 
+import org.apache.logging.log4j.LogManager;
+
 public class Assertion {
 
     public void parameter(int x) {
         assert x >= 0 : "x debe se >= 0";
     }
 
-    public void defaultIf() {
-        int x = 1;
+    public void defaultIf(int x) {
         if (x == 0) {
-            x++;
+            LogManager.getLogger(this.getClass().getName()).info(x);
         } else if (x == 1) {
-            x--;
+            LogManager.getLogger(this.getClass().getName()).info(x);
         } else
             assert false : "valor de x inesperado";
     }
 
-    public void checkCode() {
-        int x = 0;
-        int y = x++ + 2;
-        assert y == 2 : "inesperado, y debería ser 2";
+    public void checkCode(int x) {
+        x *= 2;
+        assert x % 2 == 0 : "inesperado, x debería ser par";
     }
 
     public void unreachableCode() {
