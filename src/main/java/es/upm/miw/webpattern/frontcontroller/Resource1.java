@@ -2,8 +2,8 @@ package es.upm.miw.webpattern.frontcontroller;
 
 public class Resource1 {
 
-    public String method1(String param) {
-        return "{\"name\":\"Resource1:method1:" + param + "\"}";
+    public String method1(String param, int param2) {
+        return "{\"name\":\"Resource1:method1:" + param + "," + param2 + "\"}";
     }
 
     public String method2() {
